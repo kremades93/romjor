@@ -16,7 +16,7 @@ p {
   left:10px;
   height: 4px;
   width: 20px;
-  background-color: Bisque;
+  background-color: saddlebrown;
   transform: rotate(-60deg);
   border-radius: 40%;
   display: inline-block;
@@ -27,7 +27,7 @@ p {
   left:20px;
   height: 4px;
   width: 20px;
-  background-color: Bisque;
+  background-color: saddlebrown;
   transform: rotate(60deg);
   border-radius: 40%;
   display: inline-block;
@@ -38,7 +38,7 @@ p {
   left:5px;
   height: 5px;
   width: 40px;
-  background-color: Bisque;
+  background-color: saddlebrown;
   border-radius: 40%;
   display: inline-block;
 }
@@ -48,9 +48,17 @@ p {
   left:17px;
   height: 15px;
   width: 15px;
-  background-color: Bisque;
+  background-color: saddlebrown;
   border-radius: 40%;
   display: inline-block;
+}
+
+.cara {
+    top:0px;
+  left:5px;
+    position:absolute;
+    transform: rotate(90deg);
+  color:white;
 }
 .body {
   position:absolute;
