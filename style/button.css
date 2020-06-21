@@ -13,10 +13,20 @@ button, .submitbut{
     background-color:red;
     color:white;
     border-radius:10px;
+    transition: all 0.5s;
 }
-.submitbut {
+.pedazobut {
     width:50%;
     height:20%;
     font-size:140%;
     
+}
+
+.submitbut {
+  transition-duration: 0.4s;
+}
+
+.submitbut:hover {
+  background-color: lightblue; /* Green */
+  color: black;
 }

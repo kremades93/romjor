@@ -64,7 +64,7 @@ function movepers(x) {
 
 <p id="echo" onclick="echsel()" style="left:700px;color:red;font-size:120%" >echo</p>
 <h2>Pa de pollahermosa</h2>
-<button onclick="loadplayas()" style="top:15px;left:470px">load da playas in da sist!!</button>
+<button class="submitbut" onclick="loadplayas()" style="top:15px;left:470px">load da playas in da sist!!</button>
 
 <div class="earth" style="top:70px;left:470px"></div>
 <p style="top:70px;left:530px">earth tile</p>
@@ -72,6 +72,39 @@ function movepers(x) {
 <p  style="top:125px;left:530px">water tile</p>
 <div class="mineral" style="top:180px;left:470px"></div>
 <p style="top:180px;left:530px">mineral</p>
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+  $name = $_POST['user'];
+  $moved = $_POST['moved'];
+  $position = $_POST['position'];
+
+}
+
+include("php/connect.php");//contains all passwords.
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+echo "<p style='position:absolute;left:600px'>hello $name, you moved $moved, and your position is $position. </p>"
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 
 <!-- Row  1  --> 
 <div id="1-1" class="water" style="top:70px;left:50px"></div>

@@ -124,7 +124,7 @@ $active = (int)$row[2]; $clics = $row[1];
 echo "active: " . $active . " clics: " . $clics. "<br>";
 
 $butt = "<form action= 'php/updatebut.php' > 
-        <input class ='submitbut' type='submit' value='Press bootie!'";
+        <input class ='pedazobut' type='submit' value='Press bootie!'";
 if($active===1) { 
     $butt = $butt . "style='background-color:red'";
 } else {$butt = $butt . "style='background-color:green'";}
