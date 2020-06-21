@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-jun-2020, 11:56:09
+    Author     : MiPc
+*/
+p {
+	position:absolute;
+}
+.leg1 {
+  position:absolute;
+  top:40px;
+  left:10px;
+  height: 4px;
+  width: 20px;
+  background-color: Bisque;
+  transform: rotate(-60deg);
+  border-radius: 40%;
+  display: inline-block;
+}
+.leg2 {
+  position:absolute;
+  top:40px;
+  left:20px;
+  height: 4px;
+  width: 20px;
+  background-color: Bisque;
+  transform: rotate(60deg);
+  border-radius: 40%;
+  display: inline-block;
+}
+.arms {
+  position:absolute;
+  top:20px;
+  left:5px;
+  height: 5px;
+  width: 40px;
+  background-color: Bisque;
+  border-radius: 40%;
+  display: inline-block;
+}
+.head {
+  position:absolute;
+  top:0px;
+  left:17px;
+  height: 15px;
+  width: 15px;
+  background-color: Bisque;
+  border-radius: 40%;
+  display: inline-block;
+}
+.body {
+  position:absolute;
+  top:10px;
+  left:20px;
+  height: 30px;
+  width: 10px;
+  background-color: gray;
+  border-radius: 40%;
+  display: inline-block;
+}
+.earth {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: lightgreen;
+}
+.water {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: lightblue;
+}
+.mineral {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: pink;
+}
