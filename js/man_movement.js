@@ -1,10 +1,11 @@
 
-<!-- Aquesta funció quina funcio té? -->
+// Aquesta funció quina funcio té? --> 
+// Romà: ni idea, només era per provar d'ensenyar el valor d'unes variables
 function echsel(txt = "") {
    document.getElementById("echo").innerHTML = txt + ".selected=" + selected + ".";
 }
 
-<!-- Moviment dels little men -->
+//<!-- Moviment dels little men -->
 function movepers(x) {
     if(selected != "") { //this means the human is already selected
         if(x.className==="earth" && x.id != notsel) {
