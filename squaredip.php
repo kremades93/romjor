@@ -10,13 +10,74 @@
 </head>
 <body>
 
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+  $name = $_POST['user'];
+  $moved = $_POST['moved'];
+  $position = $_POST['position'];
+
+}
+ //Now I will get both players and store the information of the second player in 
+// javascript
+include("php/connect.php");//contains all passwords.
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+
+//now we will get the two users from the database and see which one 
+$sql = "SELECT user, moved, position FROM troballa_users";
+    $result = $conn->query($sql);
+if($result === false) {
+  echo "result row false, error while executing mysql: " . mysqli_error($conn);
+ } else {
+  $result2 =  $result -> fetch_all(MYSQLI_ASSOC);
+
+	$names = array_column($result2, 'user');
+	$moves = array_column($result2, 'moved');
+	$poss = array_column($result2, 'position');
+        
+        if($names[0] === $name) {
+            $name2 = $names[1];
+            $moved2 = $moves[1];
+            $position2 = $poss[1];
+        }
+        else {
+            $name2 = $names[0];
+            $moved2 = $moves[0];
+            $position2 = $poss[0];
+        }        
+ }
+	
+
+
+
+echo "<p style='position:absolute;left:600px'>hello $name, you moved $moved, and your position is $position. </p>"
+
+?>
+    
+    
 <script>
 var selected = "", notsel="";
 var prevtile="";
-var humanhtml='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:)</div></span>';
-var happyhuman='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:D</div></span>';
 
-var posh1="1-4", posh2="3-5";
+var jugador1 = "<?php echo $name ?>";
+var jugador2 = "<?php echo $name2 ?>";
+var posh1 = "<?php echo $position ?>";
+var posh2 = "<?php echo $position2 ?>";
+
+var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
+var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:)</div></span></div>';
+
+
+
+
+
+
 
 function bigImgE(x) {
   x.style.height = "50px";
@@ -36,24 +97,24 @@ function echsel(txt = "") {
 }
 
 function loadplayas() {
-     document.getElementById(posh1).innerHTML = humanhtml;
-     document.getElementById(posh2).innerHTML = humanhtml;
+     document.getElementById(posh1).innerHTML = jug1html;
+     document.getElementById(posh2).innerHTML = jug2html;
 }
 
 function movepers(x) {
     if(selected != "") { //this means the human is already selected
-        if(x.className==="earth" && x.id != notsel) {
+        if(x.className==="earth" && x.id != posh2) {
             prevtile.innerHTML="";
-            x.innerHTML=humanhtml;
+            x.innerHTML=jug1html;
+            document.getElementById("cara1").innerHTML =":)";
             selected="", notsel="";
-            if(prevtile.id===posh1) posh1 = x.id;
-            if(prevtile.id===posh2) posh2 = x.id;
+            posh1 = x.id;
         }
         document.getElementById("echo").innerHTML = "class:" + x.className + " id: " + x.id;
-    } else if ( x.id===posh1 || x.id===posh2 ){
+    } else if ( x.id===posh1 ){
         if(x.id===posh1) {selected=posh1; notsel=posh2}
-        if(x.id===posh2) {selected=posh2; notsel=posh1}
-        x.innerHTML = happyhuman;
+        x.innerHTML = jug1html;
+        document.getElementById("cara1").innerHTML =":D";
         prevtile=x;
     }
 }
@@ -74,27 +135,7 @@ function movepers(x) {
 <p style="top:180px;left:530px">mineral</p>
 
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // collect value of input field
-  $name = $_POST['user'];
-  $moved = $_POST['moved'];
-  $position = $_POST['position'];
 
-}
-
-include("php/connect.php");//contains all passwords.
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-echo "<p style='position:absolute;left:600px'>hello $name, you moved $moved, and your position is $position. </p>"
-
-
-?>
 
 
 
