@@ -1,0 +1,21 @@
+.header_grass{
+  color: lightgreen;
+  font-size: 15px;
+  font-weight: bold;
+  top:70px;
+  left:530px;
+}
+.header_water{
+  color: lightblue;
+  font-weight: bold;
+  font-size: 15px;
+  top:125px;
+  left:530px;
+}
+.header_mineral{
+  font-weight: bold;
+  color: pink;
+  font-size: 15px;
+  top:180px;
+  left:530px;
+}

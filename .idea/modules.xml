@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../Proj LabProves/.idea/Proj Game.iml" filepath="$PROJECT_DIR$/../../Proj LabProves/.idea/Proj Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../0 - Programacio/Proj LabProves/.idea/Proj Game.iml" filepath="$PROJECT_DIR$/../0 - Programacio/Proj LabProves/.idea/Proj Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Proj Github.iml" filepath="$PROJECT_DIR$/.idea/Proj Github.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/github.iml" filepath="$PROJECT_DIR$/.idea/github.iml" />
     </modules>
   </component>
