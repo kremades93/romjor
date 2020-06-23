@@ -6,7 +6,14 @@
 
 <link rel="stylesheet" href="style/mapa.css">
 <link rel="stylesheet" href="style/button.css">
+<link rel="stylesheet" href="style/headers.css">
 
+
+
+<script type="text/javascript" src="js/man_movement.js"></script>
+<script type="text/javascript" src="js/tiles_onmouse.js"></script>
+<script type="text/javascript" src="js/man_loading.js"></script>
+<script type="text/javascript" src="js/tiles_matrix.js"></script>
 </head>
 <body>
 
@@ -74,78 +81,24 @@ var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></
 var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:)</div></span></div>';
 
 
-
-
-
-
-
-function bigImgE(x) {
-  x.style.height = "50px";
-  x.style.width = "50px";
-  x.style.backgroundColor = "orange";
-}
-
-function normalImgE(x) {
-  x.style.height = "50px";
-  x.style.width = "50px";
-  x.style.backgroundColor = "lightgreen";
-}
-
-
-function echsel(txt = "") {
-   document.getElementById("echo").innerHTML = txt + ".selected=" + selected + ".";
-}
-
 function loadplayas() {
      document.getElementById(posh1).innerHTML = jug1html;
      document.getElementById(posh2).innerHTML = jug2html;
 }
 
-function movepers(x) {
-    if(selected != "") { //this means the human is already selected
-        if(x.className==="earth" && x.id != posh2) {
-            prevtile.innerHTML="";
-            x.innerHTML=jug1html;
-            document.getElementById("cara1").innerHTML =":)";
-            selected="", notsel="";
-            posh1 = x.id;
-        }
-        document.getElementById("echo").innerHTML = "class:" + x.className + " id: " + x.id;
-    } else if ( x.id===posh1 ){
-        if(x.id===posh1) {selected=posh1; notsel=posh2}
-        x.innerHTML = jug1html;
-        document.getElementById("cara1").innerHTML =":D";
-        prevtile=x;
-    }
-}
-
 
 </script>
+<body>
+<h2>A mighty adventure</h2>
 
+<p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
+<p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
 
-<p id="echo" onclick="echsel()" style="left:700px;color:red;font-size:120%" >echo</p>
-<h2>Pa de pollahermosa</h2>
-<button class="submitbut" onclick="loadplayas()" style="top:15px;left:470px">load da playas in da sist!!</button>
+<button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
 
-<div class="earth" style="top:70px;left:470px"></div>
-<p style="top:70px;left:530px">earth tile</p>
-<div class="water" style="top:125px;left:470px"></div>
-<p  style="top:125px;left:530px">water tile</p>
-<div class="mineral" style="top:180px;left:470px"></div>
-<p style="top:180px;left:530px">mineral</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>
+<div class="water" style="top:125px;left:470px"></div><p class="header_water ">river</p>
+<div class="mineral" style="top:180px;left:470px"></div><p class="header_mineral">mineral</p>
 
 <!-- Row  1  --> 
 <div id="1-1" class="water" style="top:70px;left:50px"></div>
