@@ -68,16 +68,22 @@ p {
   height: 50px;
   width: 50px;
   background-color: lightgreen;
+  border-style: solid;
+  border-color: black;
 }
 .water {
   position: absolute;
   height: 50px;
   width: 50px;
   background-color: lightblue;
+  border-style: solid;
+  border-color: black;
 }
 .mineral {
   position: absolute;
   height: 50px;
   width: 50px;
   background-color: pink;
+  border-style: solid;
+  border-color: black;
 }

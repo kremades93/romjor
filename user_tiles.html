@@ -13,26 +13,22 @@
 <script type="text/javascript" src="js/tiles_onmouse.js"></script>
 <script type="text/javascript" src="js/man_loading.js"></script>
 <script type="text/javascript" src="js/tiles_matrix.js"></script>
+<script type="text/javascript" src="js/initial_parameters.js"></script>
 </head>
 
-<!-- Initial variables -->
-<script>
-var selected = "";
-var notsel="";
-var prevtile="";
-var humanhtml='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
-var happyhuman='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:D</div></span></div>';
-
-
-posh1="1-4";
-posh2="3-5";
-</script>
 
 <body>
-<h2>A mighty adventure</h2>
+    <h2>
+        A mighty adventure
+        <script type="text/javascript">
+            document.write(posh1)
+        </script>
+    </h2>
 
-<p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
+<!-- Per comprovar el moviment dels jugadors
+<p id="position_man1" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
 <p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
+-->
 
 <button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
 
