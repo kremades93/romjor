@@ -37,12 +37,12 @@ function movepers(x) {
             prevtile.innerHTML="";
             x.innerHTML=jug1html;
             document.getElementById("cara1").innerHTML =":)";
-            selected="", notsel="";
+            selected="";
             posh1 = x.id;
         }
         document.getElementById("echo").innerHTML = "class:" + x.className + " id: " + x.id;
     } else if ( x.id===posh1 ){
-        if(x.id===posh1) {selected=posh1; notsel=posh2}
+        if(x.id===posh1) {selected=posh1;}
         x.innerHTML = jug1html;
         document.getElementById("cara1").innerHTML =":D";
         prevtile=x;
