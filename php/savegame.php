@@ -42,7 +42,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE troballa_users SET position=$position WHERE user='$name'";
+$sql = "UPDATE troballa_users SET position='$position' WHERE user='$name'";
     $result = $conn->query($sql);
     
 if($result === false) {
@@ -52,7 +52,7 @@ if($result === false) {
 
         echo "selected '" . $name . "' with moved=".$moved ." and at position: " . $position ."<br>";
         echo '<form id="form2" action="loadgame.php" method="post" >
-            <input value="$name" name="user" id="user"> 
+            <input value="'.$name.'" name="user" id="user"> 
             <input class ="submitbut"  type="submit" value="Start game"> 
         </form>';  
     }

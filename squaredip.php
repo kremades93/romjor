@@ -87,6 +87,10 @@ function loadplayas() {
     document.getElementById(posh2).innerHTML = jug2html;
 }
 
+function saveplaypos() {
+    document.getElementById("formpos").value =posh1;
+    document.getElementById("user").value =jugador1;
+}
 
 </script>
 <body>
@@ -97,11 +101,11 @@ function loadplayas() {
 
 <button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
-<form id="form1"  method="post" action="php/savegame.php" style="position:absolute;top:50px;left:470px;">
-        <input  name="user" id="user" value=jugador1 style="visibility:visible;">
-        <input  name="moved" id="formmoved"  style="visibility:visible;">
-        <input  name="position" id="formpos"  style="visibility:visible;">
-        <input type="submit" class="submitbut" value="Next turn ma fellas!" />
+<form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()">
+        <input  name="user" id="user"  style="visibility:hidden;">
+        <input  name="moved" id="formmoved"  style="visibility:hidden;">
+        <input  name="position" id="formpos"  style="visibility:hidden;">
+        <input type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;"/>
 </form>
 
 <div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>
