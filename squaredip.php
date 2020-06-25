@@ -78,12 +78,12 @@ var posh1 = "<?php echo $position ?>";
 var posh2 = "<?php echo $position2 ?>";
 
 var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
-var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:)</div></span></div>';
+var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
 
 
 function loadplayas() {
-     document.getElementById(posh1).innerHTML = jug1html;
-     document.getElementById(posh2).innerHTML = jug2html;
+    document.getElementById(posh1).innerHTML = jug1html;
+    document.getElementById(posh2).innerHTML = jug2html;
 }
 
 
@@ -95,6 +95,13 @@ function loadplayas() {
 <p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
 
 <button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
+<!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
+<form id="form1"  method="post" action="php/savegame.php">
+        <input  name="user" id="user" value=jugador1 style="visibility:hidden;">
+        <input  name="moved" id="user" value="$moves" style="visibility:hidden;">
+        <input  name="position" id="user" value=posh1 style="visibility:hidden;">
+        <input type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;"/>
+</form>
 
 <div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>
 <div class="water" style="top:125px;left:470px"></div><p class="header_water ">river</p>
@@ -156,5 +163,9 @@ function loadplayas() {
 <div id="7-5" class="earth" onmouseover="bigImgE(this)" onmouseout="normalImgE(this)"  onclick="movepers(this)"  style="top:400px;left:270px"></div>
 <div id="7-6" class="earth" onmouseover="bigImgE(this)" onmouseout="normalImgE(this)"  onclick="movepers(this)"  style="top:400px;left:325px"></div>
 <div id="7-7" class="water" style="top:400px;left:380px"></div>
+
+
+
+
 </body>
 </html> 

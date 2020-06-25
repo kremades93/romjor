@@ -1,5 +1,5 @@
-var comprov = "false"
-var comprov2 = "false"
+var comprov = "false";
+var comprov2 = "false";
 
 function loadmap() {
      while (comprov=="false"){

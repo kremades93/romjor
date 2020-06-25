@@ -26,9 +26,9 @@ function move(x) {
 
 
 
-<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
-<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
-<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
+//<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
+//<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
+//<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
 
 function movepers(x) {
     if(selected != "") { //this means the user has selected the human
@@ -38,10 +38,12 @@ function movepers(x) {
             document.getElementById("cara1").innerHTML =":)";
             selected="";
             posh1 = x.id;
+            document.getElementById("mambo2").innerHTML ="posh1";
+
         }
         document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
     } else if ( x.id===posh1 ){
-        if(x.id===posh1) {selected=posh1;}
+        selected=posh1;
         x.innerHTML = jug1html;
         document.getElementById("cara1").innerHTML =":D";
         prevtile=x;

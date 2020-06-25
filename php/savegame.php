@@ -8,7 +8,6 @@
 <script>
     function submitform()
     {
-        document.getElementById("form2").value = "oh la la ";    
         document.getElementById("form2").submit();
     }
 </script>
@@ -27,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
     $name = $_POST['user'];
     $moved = $_POST['moved'];
-     $position = $_POST['position'];
+    $position = $_POST['position'];
+     
   if (empty($name)) {
     echo "Name is empty";
   } else {
@@ -43,41 +43,23 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT user, moved, position FROM troballa_users WHERE user='$name'";
+$sql = "UPDATE troballa_users SET position=$position, moved=$moved WHERE user='$name'";
     $result = $conn->query($sql);
+    
 if($result === false) {
   echo "error while executing mysql: " . mysqli_error($conn);
  } else {
-  $row = mysqli_fetch_row($result);
-}
-	
+        $moved = $row[1]; $position = $row[2];
 
-	/*$id = array_column($result2, 'id');
-	$clics = array_column($result2, 'clics');
-	$active = array_column($result2, 'active');*/
-if(empty($row)) {
-    echo "no player found with this name <br>";
-    echo '<form action="../index.html">
-        <input type="submit" class="submitbut" value="Go back" />
-        </form>';
-} else {
-    $moved = $row[1]; $position = $row[2];
-
-    echo "selected '" . $name . "' with moved=".$moved ." and at position: " . $position ."<br>";
-    echo '<form id="form2"  method="post" action="../squaredip.php">
-        <input  name="user" value="'.$name.'"> 
-        <input  name="moved"  value="'.$moved.'">
-        <input  name="position"  value="'.$position.'">
-        <input type="submit" class="submitbut" value="" />
+        echo "selected '" . $name . "' with moved=".$moved ." and at position: " . $position ."<br>";
+        echo '<form id="form2" action="loadgame.php" method="post" >
+            <input value="$name" name="user" id="user"> 
+            <input class ="submitbut"  type="submit" value="Start game"> 
         </form>';  
     }
     
     $conn->close();
   ?>
-
-
-
-
 
 
 </body>
