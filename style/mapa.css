@@ -2,6 +2,29 @@
 p {
 	position:absolute;
 }
+
+.man1_pos0{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:50px;
+    height:50px;
+    background-image: url("../pictures/man1pos0.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+.man2_pos0{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:50px;
+    height:50px;
+    background-image: url("../pictures/man2pos0.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
 .leg1 {
   position:absolute;
   top:40px;

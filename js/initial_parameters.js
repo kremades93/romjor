@@ -1,7 +1,3 @@
 
-var man_pos_0='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:)</div></span>';
-var man_pos_1='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:D</div></span>';
-
-
-
-
+var man1_pos_0='<span class="man1_pos0"></span>';
+var man2_pos_0='<span class="man2_pos0"></span>';
