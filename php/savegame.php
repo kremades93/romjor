@@ -25,7 +25,6 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
     $name = $_POST['user'];
-    $moved = $_POST['moved'];
     $position = $_POST['position'];
      
   if (empty($name)) {
@@ -43,7 +42,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE troballa_users SET position=$position, moved=$moved WHERE user='$name'";
+$sql = "UPDATE troballa_users SET position=$position WHERE user='$name'";
     $result = $conn->query($sql);
     
 if($result === false) {

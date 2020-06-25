@@ -77,6 +77,7 @@ var jugador2 = "<?php echo $name2 ?>";
 var posh1 = "<?php echo $position ?>";
 var posh2 = "<?php echo $position2 ?>";
 
+
 var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
 var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
 
@@ -96,11 +97,11 @@ function loadplayas() {
 
 <button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
-<form id="form1"  method="post" action="php/savegame.php">
-        <input  name="user" id="user" value=jugador1 style="visibility:hidden;">
-        <input  name="moved" id="user" value="$moves" style="visibility:hidden;">
-        <input  name="position" id="user" value=posh1 style="visibility:hidden;">
-        <input type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;"/>
+<form id="form1"  method="post" action="php/savegame.php" style="position:absolute;top:50px;left:470px;">
+        <input  name="user" id="user" value=jugador1 style="visibility:visible;">
+        <input  name="moved" id="formmoved"  style="visibility:visible;">
+        <input  name="position" id="formpos"  style="visibility:visible;">
+        <input type="submit" class="submitbut" value="Next turn ma fellas!" />
 </form>
 
 <div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>
