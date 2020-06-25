@@ -1,8 +1,25 @@
+var comprov = "false"
+var comprov2 = "false"
 
-var humanhtml='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:)</div></span>';
-var happyhuman='<span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div class="cara">:D</div></span>';
-
-function loadplayas() {
-     document.getElementById(posh1).innerHTML = humanhtml;
-     document.getElementById(posh2).innerHTML = humanhtml;
+function loadmap() {
+     while (comprov=="false"){
+         var r1= Math.floor(Math.random() * 7);
+         var r2= Math.floor(Math.random() * 7);
+         posh1 = r1+"-"+r2
+         if(map[r1][r2]=="0"){
+            document.getElementById(posh1).innerHTML = man_pos_0;
+            comprov = "true";
+         }
+         document.getElementById("comprov1").innerHTML = posh1
+     }
+     while (comprov2=="false"){
+         var r1= Math.floor(Math.random() * 7);
+         var r2= Math.floor(Math.random() * 7);
+         posh2 = r1+"-"+r2
+         if(map[r1][r2]=="0" && posh2 != posh1){
+            document.getElementById(posh2).innerHTML = man_pos_0;
+            comprov2 = "true";
+         }
+         document.getElementById("comprov2").innerHTML = posh2
+     }
 }
