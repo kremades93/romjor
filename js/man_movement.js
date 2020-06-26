@@ -26,7 +26,7 @@ function move(x) {
 //<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
 
 function movepers(x) {
-    if(!endturn) {
+    if(availableturn && canmove=="yes") {
         if(selected != "") { //this means the user has selected the human
             if(x.className==="earth" && x.id != posh2) {
                 prevtile.innerHTML="";
@@ -34,6 +34,8 @@ function movepers(x) {
                 document.getElementById("cara1").innerHTML =":)";
                 selected="";
                 posh1 = x.id;
+                moved=1;
+                writestatus();
                 finishturn();
                 document.getElementById("mambo2").innerHTML =posh1 + " hola nano";
                 

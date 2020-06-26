@@ -16,7 +16,7 @@
 <script type="text/javascript" src="js/tiles_matrix.js"></script>
 <script type="text/javascript" src="js/turns.js"></script>
 </head>
-<body>
+<body onload="checkturn();writestatus();">
 
     <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -61,23 +61,23 @@ if($result === false) {
         }        
  }
 	
-
-
-
-echo "<p style='position:absolute;left:600px'>hello $name, you moved $moved, and your position is $position. </p>"
-
 ?>
     
     
 <script>
 var selected = "", notsel="";
 var prevtile="";
-var endturn=false;
+var availableturn=false;
 
 var jugador1 = "<?php echo $name ?>";
 var jugador2 = "<?php echo $name2 ?>";
 var posh1 = "<?php echo $position ?>";
 var posh2 = "<?php echo $position2 ?>";
+var moved = "<?php echo $moved ?>";
+var moved2 = "<?php echo $moved2 ?>";
+var canmove = "<?php if($moved==="0"){echo "yes";
+                } else {echo "no";}
+             ?>";
 
 
 var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
@@ -85,30 +85,60 @@ var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></
 
 
 function loadplayas() {
+    document.getElementById("loadplayas").style.visibility = "hidden";
     document.getElementById(posh1).innerHTML = jug1html;
     document.getElementById(posh2).innerHTML = jug2html;
+    availableturn = true;
 }
 
 function saveplaypos() {
     document.getElementById("formpos").value =posh1;
-    document.getElementById("user").value =jugador1;
+    document.getElementById("formmoved").value =moved;
+    document.getElementById("userr").value =jugador1;
+}
+
+function writestatus() {
+    document.getElementById("playname").innerHTML ="<b> You play as: '" + jugador1 + "'</b>,";
+    document.getElementById("playpos").innerHTML ="position: <b>" + posh1 +"</b>,";
+    document.getElementById("playmoved").innerHTML ="moved status: <b>" + moved + "</b>,";
+        document.getElementById("pcanmove").innerHTML ="can move: <b>" + canmove + "</b>";
+    document.getElementById("play2name").innerHTML ="player 2: '" + jugador2 + "',";
+    document.getElementById("play2pos").innerHTML ="position: " + posh2;
+    document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";
 }
 
 </script>
 <body>
-<h2>A mighty adventure</h2>
+<h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
 
 <p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
 <p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
 
-<button class="submitbut" onclick="loadplayas()" style="top:30px;left:470px">load da playas in da sist!!</button>
+<button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:510px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
-<form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()">
-        <input  name="user" id="user"  style="visibility:hidden;">
+<form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >
+        <input  name="userr" id="userr"  style="visibility:hidden;">
         <input  name="moved" id="formmoved"  style="visibility:hidden;">
         <input  name="position" id="formpos"  style="visibility:hidden;">
-        <input id="nextturnbut" type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
+        <input id="nextturnbut" type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;visibility:hidden" />
 </form>
+
+<form id="refresh"  method="post" action="php/loadgame.php" style="visibility:hidden">
+        <input  name="user" id="user"  style="visibility:hidden;">
+        <input id="reload" type="submit" class="submitbut" value="reloadgame" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
+</form>
+
+<div id="player-status" style="position:absolute;top:30px;left:50px;color:cornflowerblue" >
+    <span id="playname"></span>
+    <span id="playmoved"></span>
+    <span id="playpos"></span>
+    <span id="pcanmove"></span>
+</div>
+<div id="play2-status" style="position:absolute;top:50px;left:50px;color:salmon" >
+    <span id="play2name"></span>
+    <span id="play2moved"></span>
+    <span id="play2pos"></span>
+</div>
 
 <div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>
 <div class="water" style="top:125px;left:470px"></div><p class="header_water ">river</p>

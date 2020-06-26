@@ -6,8 +6,17 @@
 
 
 function finishturn() {
-    endturn = true;
+    availableturn = false;
     document.getElementById("nextturnbut").style.visibility = "visible";
         document.getElementById("mambon5").innerHTML = "turn ended";
 
+}
+
+function checkturn() {
+    if(canmove=="no") {
+        document.getElementById("user").value =jugador1;
+        setTimeout(function(){ document.getElementById("refresh").submit(); }, 3000);
+        
+        
+    }
 }
