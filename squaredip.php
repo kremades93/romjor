@@ -101,7 +101,7 @@ function writestatus() {
     document.getElementById("playname").innerHTML ="<b> You play as: '" + jugador1 + "'</b>,";
     document.getElementById("playpos").innerHTML ="position: <b>" + posh1 +"</b>,";
     document.getElementById("playmoved").innerHTML ="moved status: <b>" + moved + "</b>,";
-        document.getElementById("pcanmove").innerHTML ="can move: <b>" + canmove + "</b>";
+        document.getElementById("pcanmove").innerHTML ="could move: <b>" + canmove + "</b>";
     document.getElementById("play2name").innerHTML ="player 2: '" + jugador2 + "',";
     document.getElementById("play2pos").innerHTML ="position: " + posh2;
     document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";
@@ -114,7 +114,7 @@ function writestatus() {
 <p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
 <p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
 
-<button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:510px">load da playas in da sist!!</button>
+<button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
 <form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >
         <input  name="userr" id="userr"  style="visibility:hidden;">

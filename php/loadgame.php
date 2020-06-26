@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($name)) {
     echo "Name is empty";
   } else {
+       echo "<h2>Loading...</h2>";
     echo "You want to play as '" . $name ."'<br>";
   }
 }
@@ -61,8 +62,9 @@ if(empty($row)) {
 } else {
     $moved = $row[1]; $position = $row[2];
 
+       
     echo "selected '" . $name . "' with moved=".$moved ." and at position: " . $position ."<br>";
-    echo '<form id="form2"  method="post" action="../squaredip.php">
+    echo '<form id="form2"  method="post" action="../squaredip.php" style="visibility:hidden">
         <input  name="user" value="'.$name.'"> 
         <input  name="moved"  value="'.$moved.'">
         <input  name="position"  value="'.$position.'">

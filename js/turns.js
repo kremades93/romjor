@@ -15,7 +15,7 @@ function finishturn() {
 function checkturn() {
     if(canmove=="no") {
         document.getElementById("user").value =jugador1;
-        setTimeout(function(){ document.getElementById("refresh").submit(); }, 3000);
+        setTimeout(function(){ document.getElementById("refresh").submit(); }, 12000);
         
         
     }
