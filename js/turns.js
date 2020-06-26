@@ -6,5 +6,8 @@
 
 
 function finishturn() {
-    
+    endturn = true;
+    document.getElementById("nextturnbut").style.visibility = "visible";
+        document.getElementById("mambon5").innerHTML = "turn ended";
+
 }

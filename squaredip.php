@@ -14,6 +14,7 @@
 <script type="text/javascript" src="js/tiles_onmouse.js"></script>
 <script type="text/javascript" src="js/man_loading.js"></script>
 <script type="text/javascript" src="js/tiles_matrix.js"></script>
+<script type="text/javascript" src="js/turns.js"></script>
 </head>
 <body>
 
@@ -71,6 +72,7 @@ echo "<p style='position:absolute;left:600px'>hello $name, you moved $moved, and
 <script>
 var selected = "", notsel="";
 var prevtile="";
+var endturn=false;
 
 var jugador1 = "<?php echo $name ?>";
 var jugador2 = "<?php echo $name2 ?>";
@@ -105,7 +107,7 @@ function saveplaypos() {
         <input  name="user" id="user"  style="visibility:hidden;">
         <input  name="moved" id="formmoved"  style="visibility:hidden;">
         <input  name="position" id="formpos"  style="visibility:hidden;">
-        <input type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;"/>
+        <input id="nextturnbut" type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
 </form>
 
 <div class="earth" style="top:70px;left:470px"></div><p class="header_grass ">field</p>

@@ -26,23 +26,26 @@ function move(x) {
 //<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
 
 function movepers(x) {
-    if(selected != "") { //this means the user has selected the human
-        if(x.className==="earth" && x.id != posh2) {
-            prevtile.innerHTML="";
-            x.innerHTML=jug1html;
-            document.getElementById("cara1").innerHTML =":)";
-            selected="";
-            posh1 = x.id;
-            document.getElementById("mambo2").innerHTML =posh1;
-            finishturn();
+    if(!endturn) {
+        if(selected != "") { //this means the user has selected the human
+            if(x.className==="earth" && x.id != posh2) {
+                prevtile.innerHTML="";
+                x.innerHTML=jug1html;
+                document.getElementById("cara1").innerHTML =":)";
+                selected="";
+                posh1 = x.id;
+                finishturn();
+                document.getElementById("mambo2").innerHTML =posh1 + " hola nano";
+                
 
+            }
+            document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
+        } else if ( x.id===posh1 ){
+            selected=posh1;
+            x.innerHTML = jug1html;
+            document.getElementById("cara1").innerHTML =":D";
+            prevtile=x;
         }
-        document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
-    } else if ( x.id===posh1 ){
-        selected=posh1;
-        x.innerHTML = jug1html;
-        document.getElementById("cara1").innerHTML =":D";
-        prevtile=x;
     }
 }
 
