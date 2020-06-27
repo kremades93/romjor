@@ -28,7 +28,7 @@ function move(x) {
 function movepers(x) {
     if(availableturn && canmove=="yes") {
         if(selected != "") { //this means the user has selected the human
-            if(x.className==="earth" && x.id != posh2) {
+            if(x.className==="earth" && x.id != posh2 && validmove(posh1, x.id)) {
                 document.getElementById("mambo2").innerHTML ="posh1: "+ posh1 + ", x.id: " + x.id + ", valid move:" + validmove(posh1, x.id);
                 prevtile.innerHTML="";
                 x.innerHTML=jug1html;

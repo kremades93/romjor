@@ -2,7 +2,10 @@
 function bigImgE(x) {
   x.style.height = "50px";
   x.style.width = "50px";
-  x.style.backgroundColor = "orange";
+  if(validmove(x.id,posh1)) {
+      x.style.backgroundColor = "green";
+  }  else { x.style.backgroundColor = "orange";}
+  
 }
 
 //<!-- Retorna el style inicial a la tile després dhaverla destacat -->
