@@ -112,7 +112,7 @@ function writestatus() {
 <h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
 
 <p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
-<p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >mambo2</p>
+<p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >yo low</p>
 
 <button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->

@@ -29,6 +29,7 @@ function movepers(x) {
     if(availableturn && canmove=="yes") {
         if(selected != "") { //this means the user has selected the human
             if(x.className==="earth" && x.id != posh2) {
+                document.getElementById("mambo2").innerHTML ="posh1: "+ posh1 + ", x.id: " + x.id + ", valid move:" + validmove(posh1, x.id);
                 prevtile.innerHTML="";
                 x.innerHTML=jug1html;
                 document.getElementById("cara1").innerHTML =":)";
@@ -37,7 +38,7 @@ function movepers(x) {
                 moved=1;
                 writestatus();
                 finishturn();
-                document.getElementById("mambo2").innerHTML =posh1 + " hola nano";
+                
                 
 
             }
@@ -49,6 +50,13 @@ function movepers(x) {
             prevtile=x;
         }
     }
+}
+
+function validmove(pos1,pos2, length=1) { //pos1 and pos2 should be in the format "2-4" 
+    posi1 = pos1.split("-");
+    posi2 = pos2.split("-");
+    if(Math.abs(posi1[0]-posi2[0]) + Math.abs(posi1[1]-posi2[1]) <= length ) return true;
+    return false;
 }
 
 function movepers2(x,posh1){
