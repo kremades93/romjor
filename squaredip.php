@@ -16,9 +16,9 @@
 <script type="text/javascript" src="js/tiles_matrix.js"></script>
 <script type="text/javascript" src="js/turns.js"></script>
 </head>
-<body onload="checkturn();writestatus();">
+<body onload="checkturn();writestatus();loadplayas()">
 
-    <?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
   $name = $_POST['user'];
@@ -59,11 +59,10 @@ if($result === false) {
             $moved2 = $moves[0];
             $position2 = $poss[0];
         }        
- }
-	
+ }	
 ?>
-    
-    
+
+
 <script>
 var selected = "", notsel="";
 var prevtile="";
