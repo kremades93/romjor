@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style/mapa.css">
     <link rel="stylesheet" href="style/button.css">
     <link rel="stylesheet" href="style/headers.css">
+    <link rel="stylesheet" href="style/controls.css">
 
     <script type="text/javascript" src="js/man_movement.js"></script>
     <script type="text/javascript" src="js/tiles_onmouse.js"></script>
@@ -109,8 +110,12 @@ function writestatus() {
 <body>
 <h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
 
-<p id="echo" onclick="echsel()" style="left:470px;top:225px;color:black;font-size:120%" >mambo1</p>
-<p id="mambo2" onclick="echsel()" style="left:470px;top:275px;color:black;font-size:120%" >yo low</p>
+<div class="fonshungerbar">
+  <div id="hunger1" class="hungerbar" style="width:70%"></div>
+ </div>  <p class="hungertext">hunger</p> 
+ <div class="fonsthirstbar">
+  <div id="waterl" class="thirst" style="width:50%"></div>
+ </div>  <p class="thirsttext">thirst</p>
 
 <button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
