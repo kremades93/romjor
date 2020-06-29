@@ -59,10 +59,3 @@ function validmove(pos1,pos2, length=1) { //pos1 and pos2 should be in the forma
     return false;
 }
 
-
-function movepers2(x,posh1){
-    if (posh2=="3-5"){
-        x.innerHTML=humanhtml;
-    }
-}
-

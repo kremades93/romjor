@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style/mapa.css">
+    <link rel="stylesheet" href="style/button.css">
+    <link rel="stylesheet" href="style/headers.css">
+
+    <script type="text/javascript" src="js/man_movement.js"></script>
+    <script type="text/javascript" src="js/tiles_onmouse.js"></script>
+    <script type="text/javascript" src="js/man_loading.js"></script>
+    <script type="text/javascript" src="js/tiles_matrix.js"></script>
+    <script type="text/javascript" src="js/turns.js"></script>
+    </head>
 
 
-<link rel="stylesheet" href="style/mapa.css">
-<link rel="stylesheet" href="style/button.css">
-<link rel="stylesheet" href="style/headers.css">
+<body onload="checkturn();writestatus();">
+
+    <?php
+        //Retrieve info from the previous php file
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $name = $_POST['user'];
+          $moved = $_POST['moved'];
+          $position = $_POST['position'];
+        }
 
 
-
-<script type="text/javascript" src="js/man_movement.js"></script>
-<script type="text/javascript" src="js/tiles_onmouse.js"></script>
-<script type="text/javascript" src="js/man_loading.js"></script>
-<script type="text/javascript" src="js/tiles_matrix.js"></script>
-<script type="text/javascript" src="js/turns.js"></script>
-</head>
-<body onload="checkturn();writestatus();loadplayas()">
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // collect value of input field
-  $name = $_POST['user'];
-  $moved = $_POST['moved'];
-  $position = $_POST['position'];
-
-}
- //Now I will get both players and store the information of the second player in 
-// javascript
-include("php/connect.php");//contains all passwords.
+        //Now I will get both players and store the information of the second player in
+        // javascript
+        include("php/connect.php");//contains all passwords.
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 // Check connection
@@ -198,9 +198,6 @@ function writestatus() {
 <div id="7-5" class="earth" onmouseover="bigImgE(this)" onmouseout="normalImgE(this)"  onclick="movepers(this)"  style="top:400px;left:270px"></div>
 <div id="7-6" class="earth" onmouseover="bigImgE(this)" onmouseout="normalImgE(this)"  onclick="movepers(this)"  style="top:400px;left:325px"></div>
 <div id="7-7" class="water" style="top:400px;left:380px"></div>
-
-
-
 
 </body>
 </html> 
