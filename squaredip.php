@@ -105,7 +105,6 @@ function writestatus() {
     document.getElementById("play2pos").innerHTML ="position: " + posh2;
     document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";
 }
-
 </script>
 <body>
 <h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
