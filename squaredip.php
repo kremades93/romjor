@@ -15,7 +15,7 @@
     </head>
 
 
-<body onload="checkturn();writestatus();">
+<body onload="checkturn();writestatus();loadplayas()">
 
     <?php
         //Retrieve info from the previous php file
