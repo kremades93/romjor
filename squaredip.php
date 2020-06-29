@@ -116,7 +116,7 @@ function writestatus() {
  <div class="fonsthirstbar">
   <div id="waterl" class="thirst" style="width:50%"></div>
  </div>  <p class="thirsttext">thirst</p>
-
+<p id="mambo2" style="left:470px;top:280px;">thirst</p>
 <button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
 <form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >
