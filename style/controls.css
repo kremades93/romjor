@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29-jun-2020, 17:14:39
+    Author     : MiPc
+*/
+
+.thirst {
+    background-color: DarkTurquoise;
+    height:100%;
+    border-radius:5px;
+}
+
+.fonsthirstbar {
+    position:absolute;
+    left:470px;
+    top:275px;    
+    width:100px;
+    height:10px;
+    border-radius:5px;
+    background-color: aliceblue;
+}
+
+.thirsttext {
+    position:absolute;
+    color: DarkTurquoise;
+    left:590px;
+    top:253px;    
+    width:100px;
+    height:10px;
+}
+
+.hungerbar {
+    background-color: DarkOliveGreen;
+    height:100%;
+    border-radius:5px;
+}
+
+.fonshungerbar {
+    position:absolute;
+    left:470px;
+    top:250px;    
+    width:100px;
+    height:10px;
+    border-radius:5px;
+    background-color: OldLace;
+}
+
+.hungertext {
+    position:absolute;
+    color: DarkOliveGreen;
+    left:590px;
+    top:230px;    
+    width:100px;
+    height:10px;
+}
