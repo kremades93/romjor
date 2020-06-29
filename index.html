@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style/button.css">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="style/button.css">
 
-<script>
-    function checkform()
-    {
-        if (document.getElementsByName("user")[0].value === "")
-        {
-            alert("Please enter a player name");
-            return false;
-        }
-    }
-</script>
-</head>
+    <script type="text/javascript" src="js/user_input_check.js"></script>
+    </head>
 
-<body>
-    <form action="php/loadgame.php" onsubmit="return checkform()" method="post" >
-        <input placeholder="playa name" name="user" id="user"> 
-        <input class ="submitbut"  type="submit" value="Start game"> 
-    </form>
-</body>
+    <body>
+        <form action="php/loadgame.php" onsubmit="return checkform()" method="post">
+            <input placeholder="playa name" name="user" id="user">
+            <input class ="submitbut"  type="submit" value="Start game">
+        </form>
+    </body>
 </html> 

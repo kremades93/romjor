@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../style/button.css">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" href="../style/button.css">
 
-<script>
-    function submitform()
-    {
-        document.getElementById("form2").value = "oh la la ";    
-        document.getElementById("form2").submit();
-    }
-</script>
-</head>
+        <script>
+            function submitform()
+            {
+                document.getElementById("form2").value = "oh la la ";
+                document.getElementById("form2").submit();
+            }
+        </script>
+    </head>
 
 <body onload="submitform()">
-<?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field

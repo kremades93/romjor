@@ -58,10 +58,3 @@ function validmove(pos1,pos2, length=1) { //pos1 and pos2 should be in the forma
     if(Math.abs(posi1[0]-posi2[0]) + Math.abs(posi1[1]-posi2[1]) <= length ) return true;
     return false;
 }
-
-function movepers2(x,posh1){
-    if (posh2=="3-5"){
-        x.innerHTML=humanhtml;
-    }
-}
-
