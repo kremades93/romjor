@@ -101,7 +101,7 @@ function writestatus() {
     document.getElementById("playname").innerHTML ="<b> You play as: '" + jugador1 + "'</b>,";
     document.getElementById("playpos").innerHTML ="position: <b>" + posh1 +"</b>,";
     document.getElementById("playmoved").innerHTML ="moved status: <b>" + moved + "</b>,";
-        document.getElementById("pcanmove").innerHTML ="could move: <b>" + canmove + "</b>";
+    document.getElementById("pcanmove").innerHTML ="could move: <b>" + canmove + "</b>";
     document.getElementById("play2name").innerHTML ="player 2: '" + jugador2 + "',";
     document.getElementById("play2pos").innerHTML ="position: " + posh2;
     document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";

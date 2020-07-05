@@ -8,7 +8,7 @@
         <script>
             function submitform()
             {
-                document.getElementById("form2").value = "oh la la ";
+                //document.getElementById("form2").value = "oh la la ";
                 document.getElementById("form2").submit();
             }
         </script>
@@ -49,6 +49,7 @@ if($result === false) {
 	/*$id = array_column($result2, 'id');
 	$clics = array_column($result2, 'clics');
 	$active = array_column($result2, 'active');*/
+
 if(empty($row)) {
     echo "no player found with this name <br>";
     echo '<form action="../index.html">

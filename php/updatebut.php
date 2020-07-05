@@ -30,6 +30,6 @@ if ($conn->query($sql) === FALSE) {
 
 $conn->close();
 
-header("Location: ../boto.php");
+header("Location: ../boto.php?maria=3");
 
 ?> 
