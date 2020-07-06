@@ -27,29 +27,27 @@ function move(x) {
 
 function movepers(x) {
     if(availableturn && canmove=="yes") {
-        if(hunger <= 0 || thirst <= 0) {
-            if(hunger <= 0) document.getElementById("mambo2").innerHTML = " You DIeD out of hunger! ";
-            else document.getElementById("mambo2").innerHTML = " You DIeD out of thirst! ";
-        } else {
-             if(selected != "") { //this means the user has selected the human
-            if(x.className==="earth" && x.id != posh2 && validmove(posh1, x.id)) {
-                document.getElementById("mambo2").innerHTML ="posh1: "+ posh1 + ", x.id: " + x.id + ", valid move:" + validmove(posh1, x.id);
-                prevtile.innerHTML="";
-                x.innerHTML=jug1html;
-                document.getElementById("cara1").innerHTML =":)";
-                selected="";
-                posh1 = x.id;
-                moved=1;
-                thirst = thirst - 1;
-                hunger = hunger - 0.2;
-                updatefood();
-                writestatus();
-                finishturn();
-                
-                
+        if( dead() ) reportdeath();
+        else {
+            if(selected != "") { //this means the user has selected the human
+                if(x.className==="earth" && x.id != posh2 && validmove(posh1, x.id)) {
+                    document.getElementById("mambo2").innerHTML ="posh1: "+ posh1 + ", x.id: " + x.id + ", valid move:" + validmove(posh1, x.id);
+                    prevtile.innerHTML="";
+                    x.innerHTML=jug1html;
+                    document.getElementById("cara1").innerHTML =":)";
+                    selected="";
+                    posh1 = x.id;
+                    moved=1;
+                    thirst = thirst - 1;
+                    hunger = hunger - 0.2;
+                    updatefood();
+                    writestatus();
+                    finishturn();
 
-            }
-            document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
+
+
+                }
+                document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
         } else if ( x.id===posh1 ){
             selected=posh1;
             x.innerHTML = jug1html;
@@ -60,10 +58,20 @@ function movepers(x) {
     }
 }
 
-function validmove(pos1,pos2, length=1) { //pos1 and pos2 should be in the format "2-4" 
+function validmove(pos1, pos2, length=1) { //pos1 and pos2 should be in the format "2-4" 
     posi1 = pos1.split("-");
     posi2 = pos2.split("-");
     if(Math.abs(posi1[0]-posi2[0]) + Math.abs(posi1[1]-posi2[1]) <= length ) return true;
     return false;
 }
 
+function dead() {
+     if(hunger <= 0 || thirst <= 0) return true;
+     return false;
+}
+
+function reportdeath() {
+    if(hunger <= 0) document.getElementById("mambo2").innerHTML = " You DIeD out of hunger! ";
+    else if(thirst <=0) document.getElementById("mambo2").innerHTML = " You DIeD out of thirst! ";
+    else document.getElementById("mambo2").innerHTML = " Error: in fn reportdeath(): player not dead!  ";
+}
