@@ -27,7 +27,11 @@ function move(x) {
 
 function movepers(x) {
     if(availableturn && canmove=="yes") {
-        if(selected != "") { //this means the user has selected the human
+        if(hunger <= 0 || thirst <= 0) {
+            if(hunger <= 0) document.getElementById("mambo2").innerHTML = " You DIeD out of hunger! ";
+            else document.getElementById("mambo2").innerHTML = " You DIeD out of thirst! ";
+        } else {
+             if(selected != "") { //this means the user has selected the human
             if(x.className==="earth" && x.id != posh2 && validmove(posh1, x.id)) {
                 document.getElementById("mambo2").innerHTML ="posh1: "+ posh1 + ", x.id: " + x.id + ", valid move:" + validmove(posh1, x.id);
                 prevtile.innerHTML="";
@@ -36,6 +40,9 @@ function movepers(x) {
                 selected="";
                 posh1 = x.id;
                 moved=1;
+                thirst = thirst - 1;
+                hunger = hunger - 0.2;
+                updatefood();
                 writestatus();
                 finishturn();
                 
@@ -49,6 +56,7 @@ function movepers(x) {
             document.getElementById("cara1").innerHTML =":D";
             prevtile=x;
         }
+        }       
     }
 }
 

@@ -37,7 +37,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT user, moved, position FROM troballa_users WHERE user='$name'";
+$sql = "SELECT user, moved, position, thirst, hunger FROM troballa_users WHERE user='$name'";
     $result = $conn->query($sql);
 if($result === false) {
   echo "error while executing mysql: " . mysqli_error($conn);
@@ -56,7 +56,7 @@ if(empty($row)) {
         <input type="submit" class="submitbut" value="Go back" />
         </form>';
 } else {
-    $moved = $row[1]; $position = $row[2];
+    $moved = $row[1]; $position = $row[2]; $thirst = $row[3]; $hunger = $row[4];
 
        
     echo "selected '" . $name . "' with moved=".$moved ." and at position: " . $position ."<br>";
@@ -64,6 +64,8 @@ if(empty($row)) {
         <input  name="user" value="'.$name.'"> 
         <input  name="moved"  value="'.$moved.'">
         <input  name="position"  value="'.$position.'">
+        <input  name="thirst"  value="'.$thirst.'">
+        <input  name="hunger"  value="'.$hunger.'">
         <input type="submit" class="submitbut" value="" />
         </form>';  
     }

@@ -27,6 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['userr'];
     $position = $_POST['position'];
     $moved = $_POST['moved'];
+    $hunger = $_POST['hunger'];
+    $thirst = $_POST['thirst'];
      
   if (empty($name)) {
     echo "Name is empty";
@@ -79,7 +81,7 @@ if($result === false) {
     
 }
 
-$sql = "UPDATE troballa_users SET position='$position', moved='$moved' WHERE user='$name'";
+$sql = "UPDATE troballa_users SET position='$position', moved='$moved', hunger='$hunger', thirst='$thirst' WHERE user='$name'";
     $result = $conn->query($sql);
     
 if($result === false) {

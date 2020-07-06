@@ -16,7 +16,7 @@
     </head>
 
 
-<body onload="checkturn();writestatus();loadplayas()">
+<body onload="loadgame();">
 
     <?php
         //Retrieve info from the previous php file
@@ -24,6 +24,8 @@
           $name = $_POST['user'];
           $moved = $_POST['moved'];
           $position = $_POST['position'];
+          $thirst = $_POST['thirst'];
+          $hunger = $_POST['hunger'];
         }
 
 
@@ -39,7 +41,7 @@ if ($conn->connect_error) {
 
 
 //now we will get the two users from the database and see which one 
-$sql = "SELECT user, moved, position FROM troballa_users";
+$sql = "SELECT user, moved, position, thirst, hunger FROM troballa_users";
     $result = $conn->query($sql);
 if($result === false) {
   echo "result row false, error while executing mysql: " . mysqli_error($conn);
@@ -49,16 +51,22 @@ if($result === false) {
 	$names = array_column($result2, 'user');
 	$moves = array_column($result2, 'moved');
 	$poss = array_column($result2, 'position');
+        $thirs = array_column($result2, 'thirst');
+        $hungs = array_column($result2, 'hunger');
         
         if($names[0] === $name) {
             $name2 = $names[1];
             $moved2 = $moves[1];
             $position2 = $poss[1];
+            $thirst2 = $thirs[1];
+            $hunger2 = $hungs[1];            
         }
         else {
             $name2 = $names[0];
             $moved2 = $moves[0];
             $position2 = $poss[0];
+            $thirst2 = $thirs[0];
+            $hunger2 = $hungs[0];  
         }        
  }	
 ?>
@@ -75,6 +83,10 @@ var posh1 = "<?php echo $position ?>";
 var posh2 = "<?php echo $position2 ?>";
 var moved = "<?php echo $moved ?>";
 var moved2 = "<?php echo $moved2 ?>";
+var thirst = "<?php echo $thirst ?>";
+var thirst2 = "<?php echo $thirst2 ?>";
+var hunger = "<?php echo $hunger ?>";
+var hunger2 = "<?php echo $hunger2 ?>";  
 var canmove = "<?php if($moved==="0"){echo "yes";
                 } else {echo "no";}
              ?>";
@@ -95,6 +107,9 @@ function saveplaypos() {
     document.getElementById("formpos").value =posh1;
     document.getElementById("formmoved").value =moved;
     document.getElementById("userr").value =jugador1;
+    document.getElementById("fromhung").value =hunger;
+    document.getElementById("formthirst").value =thirst; 
+    
 }
 
 function writestatus() {
@@ -106,6 +121,20 @@ function writestatus() {
     document.getElementById("play2pos").innerHTML ="position: " + posh2;
     document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";
 }
+
+function updatefood() {
+    document.getElementById("hunger1").style.width = hunger*10 + "%";
+    document.getElementById("waterl").style.width = thirst*10 + "%";
+}
+
+function loadgame() {    
+    checkturn();
+    writestatus();
+    loadplayas();   
+    updatefood();
+}
+
+
 </script>
 <body>
 <h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
@@ -115,14 +144,18 @@ function writestatus() {
  </div>  <p class="hungertext">hunger</p> 
  <div class="fonsthirstbar">
   <div id="waterl" class="thirst" style="width:50%"></div>
- </div>  <p class="thirsttext">thirst</p>
-<p id="mambo2" style="left:470px;top:280px;">thirst</p>
+ </div> <p class="thirsttext">thirst</p> 
+
+ 
+<h2 id="mambo2" style="position:absolute;left:470px;top:280px;"></h2>
 <button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
 <form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >
         <input  name="userr" id="userr"  style="visibility:hidden;">
         <input  name="moved" id="formmoved"  style="visibility:hidden;">
         <input  name="position" id="formpos"  style="visibility:hidden;">
+        <input  name="hunger" id="fromhung"  style="visibility:hidden;">
+        <input  name="thirst" id="formthirst"  style="visibility:hidden;">
         <input id="nextturnbut" type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;visibility:hidden" />
 </form>
 
