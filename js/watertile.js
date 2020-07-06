@@ -12,6 +12,8 @@ function watertile(x) {
             thirst = thirst + 5;
             thirst = Math.max(thirst,10);
             updatefood();
+            writestatus();
+            finishturn();
         }        
     }
 }
