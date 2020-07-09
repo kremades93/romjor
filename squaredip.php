@@ -109,8 +109,7 @@ function saveplaypos() {
     document.getElementById("formmoved").value =moved;
     document.getElementById("userr").value =jugador1;
     document.getElementById("fromhung").value =hunger;
-    document.getElementById("formthirst").value =thirst; 
-    
+    document.getElementById("formthirst").value =thirst;     
 }
 
 function writestatus() {
