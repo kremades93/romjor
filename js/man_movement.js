@@ -43,9 +43,6 @@ function movepers(x) {
                     updatefood();
                     writestatus();
                     finishturn();
-
-
-
                 }
                 document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
         } else if ( x.id===posh1 ){
