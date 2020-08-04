@@ -19,18 +19,19 @@ class turn {
     
     end() {
         this._ended = true;
-    }   
+    }  
+    
     
     loadplayas() {
         document.getElementById("loadplayas").style.visibility = "hidden";
-        jugad1.place(posh1);
-        jugad2.place(posh2);
+        jugad1.place(jugad1.pos);
+        jugad2.place(jugad2.pos);
         //availableturn = true;
     }
 
     saveplaypos() {
         document.getElementById("formpos").value = jugad1.pos;
-        if(jugd1.moved) moved="1"; else {moved="0"};
+        if(jugad1.moved) {moved="1";} else {moved="0";};
         document.getElementById("formmoved").value = moved ;
         document.getElementById("userr").value =jugad1.name ;
         document.getElementById("fromhung").value =jugad1.hunger ;
@@ -58,8 +59,10 @@ class turn {
         document.getElementById("nextturnbut").style.visibility = "visible";
         document.getElementById("mambon5").innerHTML = "turn ended";
     }
+
     
     checkturn() {
+        document.getElementById("mambo3").innerHTML = "holi";
         if(jugad1.moved) {
            turn.refresh(12);
         }   

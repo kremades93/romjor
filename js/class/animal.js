@@ -6,7 +6,7 @@
 /* the html variables is the html code of the animal in particular. It contains its layout.  */
 class animal extends object { 
      constructor(pos, select, name, id, visible, thirst,hunger,dead, html, moved=false) {
-      super(pos, select, html, id, visible);
+      super(     pos, select, html, id, visible);
       this._name = name;
       this._thirst = thirst;
       this._hunger = hunger;
@@ -27,7 +27,7 @@ class animal extends object {
     }
     get dead() {
       return this._dead;
-  }
+    }
     get moved() {
       return this._moved;
     }
@@ -94,7 +94,7 @@ class animal extends object {
             this._dead = true;
             this._deathreason = "thirst";
         }
-}
+    }
     reportdeath(id) {
         if(hunger <= 0) document.getElementById(id).innerHTML = " You DIeD out of hunger! ";
         else if(thirst <=0) document.getElementById(id).innerHTML = " You DIeD out of thirst! ";

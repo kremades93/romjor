@@ -97,9 +97,7 @@ var thirst = "<?php echo $thirst ?>";
 var thirst2 = "<?php echo $thirst2 ?>";
 var hunger = "<?php echo $hunger ?>";
 var hunger2 = "<?php echo $hunger2 ?>";  
-var canmove = "<?php if($moved==="0"){echo "yes";
-                } else {echo "no";}
-             ?>";
+
 
 var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
 var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
@@ -107,18 +105,19 @@ var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></
 
 //               (pos, select, name, id, visible, thirst,hunger,dead, html, moved=false, cara=":S", carahtml) {
 
-jugad1 = new person(posh1, false, jugador1, id="jugador1", thirst, hunger, false, jug1html, moved, ":0","cara1");
-jugad2 = new person(posh2, false, jugador2, id="jugador2", thirst, hunger, false, jug1htm2, moved2, ":0","cara2");
+//jugad1 = new person(posh1, false, jugador1, id="jugador1", visible=true, thirst, hunger, false, jug1html, moved, ":0","cara1");
+//jugad2 = new person(posh2, false, jugador2, id="jugador2", visible=true, thirst, hunger, false, jug1htm2, moved2, ":0","cara2");
 
 turn = new turn(ended=false);
 
 
 
-
-
-
-function loadgame() {    
+function loadgame() {
+    document.getElementById("mambo3").innerHTML = "Moonshine " + posh1 + " select: " + "name: " + jugador1 + " id: " + " thirst: " + thirst + " hunger: " + hunger +
+            " html: " + jug1html + " moved: " + moved + " turn: " + turn.ended;
+    
     turn.checkturn();
+    document.getElementById("mambo3").innerHTML = "Yo-Low";
     turn.writestatus();
     turn.loadplayas();   
     turn.updategroceries();
@@ -139,7 +138,9 @@ function loadgame() {
  </div> <p class="thirsttext">thirst</p> 
 
  
-<h2 id="mambo2" style="position:absolute;left:470px;top:280px;"></h2>
+<h2 id="mambo2" style="position:absolute;left:470px;top:280px;">hooli</h2>
+<h2 id="mambo3" style="position:absolute;left:470px;top:320px;">hoodli</h2>
+
 <button id="loadplayas" class="submitbut" onclick="turn.loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
 <form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >

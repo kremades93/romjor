@@ -22,6 +22,6 @@ body {
     top:0px;
     width:100%;
     height:100%;
-    background-image: linear-gradient(50deg, cornflowerblue, yellow);
+    background-image: linear-gradient(50deg, cornflowerblue, darkgreen);
     opacity:0.6;
 }

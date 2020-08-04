@@ -1,7 +1,8 @@
+//               pos, select, name, id, visible, thirst,hunger,dead, html, moved=false
 
 class person extends animal {
      constructor(pos, select, name, id, visible, thirst,hunger,dead, html, moved=false, cara=":S", carahtml) {
-      super(pos, select, name, id, visible, thirst,hunger,dead, html, moved);
+      super(     pos, select, name, id, visible, thirst,hunger,dead, html, moved);
       this._cara = cara;
       this._carahtml = carahtml;
   }
