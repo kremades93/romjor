@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-ago-2020, 16:42:46
+    Author     : MiPc
+*/
+
+body {
+    background-image: url("../pictures/background/fonsvertdiag4.png");
+    background-size:cover;
+    width:100%;
+    height:100vh;
+    
+  
+}
+#gradient {
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    background-image: linear-gradient(50deg, cornflowerblue, yellow);
+    opacity:0.6;
+}

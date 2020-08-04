@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="style/button.css">
     <link rel="stylesheet" href="style/headers.css">
     <link rel="stylesheet" href="style/controls.css">
+    <link rel="stylesheet" href="style/body.css">
 
-    <script type="text/javascript" src="js/man_movement.js"></script>
-    <script type="text/javascript" src="js/tiles_onmouse.js"></script>
-    <script type="text/javascript" src="js/man_loading.js"></script>
-    <script type="text/javascript" src="js/tiles_matrix.js"></script>
-    <script type="text/javascript" src="js/turns.js"></script>
-    <script type="text/javascript" src="js/watertile.js"></script>
+    <script type="text/javascript" src="js/class/animal.js"></script>
+    <script type="text/javascript" src="js/class/object.js"></script>
+    <script type="text/javascript" src="js/class/person.js"></script>
+    <script type="text/javascript" src="js/class/turns.js"></script>
+
+    
+    <script type="text/javascript" src="js/functions/man_movement.js"></script>
+    <script type="text/javascript" src="js/functions/tiles_onmouse.js"></script>
+    <script type="text/javascript" src="js/functions/man_loading.js"></script>
+    <script type="text/javascript" src="js/functions/tiles_matrix.js"></script>
+    <script type="text/javascript" src="js/functions/turns.js"></script>
+    <script type="text/javascript" src="js/functions/watertile.js"></script>
     </head>
 
 
@@ -74,6 +81,8 @@ if($result === false) {
 
 
 <script>
+    
+    //here we set the first global variables
 var selected = "", notsel="";
 var prevtile="";
 var availableturn=false;
@@ -82,8 +91,8 @@ var jugador1 = "<?php echo $name ?>";
 var jugador2 = "<?php echo $name2 ?>";
 var posh1 = "<?php echo $position ?>";
 var posh2 = "<?php echo $position2 ?>";
-var moved = "<?php echo $moved ?>";
-var moved2 = "<?php echo $moved2 ?>";
+var moved = "<?php echo $moved ?>"; if(moved==="1") moved=true; else {moved=false;}
+var moved2 = "<?php echo $moved2 ?>"; if(moved2==="1") moved2=true; else {moved2=false;}
 var thirst = "<?php echo $thirst ?>";
 var thirst2 = "<?php echo $thirst2 ?>";
 var hunger = "<?php echo $hunger ?>";
@@ -92,51 +101,34 @@ var canmove = "<?php if($moved==="0"){echo "yes";
                 } else {echo "no";}
              ?>";
 
-
 var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
 var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
 
 
-function loadplayas() {
-    document.getElementById("loadplayas").style.visibility = "hidden";
-    document.getElementById(posh1).innerHTML = jug1html;
-    document.getElementById(posh2).innerHTML = jug2html;
-    availableturn = true;
-}
+//               (pos, select, name, id, visible, thirst,hunger,dead, html, moved=false, cara=":S", carahtml) {
 
-function saveplaypos() {
-    document.getElementById("formpos").value =posh1;
-    document.getElementById("formmoved").value =moved;
-    document.getElementById("userr").value =jugador1;
-    document.getElementById("fromhung").value =hunger;
-    document.getElementById("formthirst").value =thirst;     
-}
+jugad1 = new person(posh1, false, jugador1, id="jugador1", thirst, hunger, false, jug1html, moved, ":0","cara1");
+jugad2 = new person(posh2, false, jugador2, id="jugador2", thirst, hunger, false, jug1htm2, moved2, ":0","cara2");
 
-function writestatus() {
-    document.getElementById("playname").innerHTML ="<b> You play as: '" + jugador1 + "'</b>,";
-    document.getElementById("playpos").innerHTML ="position: <b>" + posh1 +"</b>,";
-    document.getElementById("playmoved").innerHTML ="moved status: <b>" + moved + "</b>,";
-    document.getElementById("pcanmove").innerHTML ="could move: <b>" + canmove + "</b>";
-    document.getElementById("play2name").innerHTML ="player 2: '" + jugador2 + "',";
-    document.getElementById("play2pos").innerHTML ="position: " + posh2;
-    document.getElementById("play2moved").innerHTML ="moved status: " + moved2 + ",";
-}
+turn = new turn(ended=false);
 
-function updatefood() {
-    document.getElementById("hunger1").style.width = hunger*10 + "%";
-    document.getElementById("waterl").style.width = thirst*10 + "%";
-}
+
+
+
+
 
 function loadgame() {    
-    checkturn();
-    writestatus();
-    loadplayas();   
-    updatefood();
+    turn.checkturn();
+    turn.writestatus();
+    turn.loadplayas();   
+    turn.updategroceries();
 }
 
 
 </script>
 <body>
+    <div id="gradient"></div>
+    
 <h2 style="left:10px;top:-20px;position:absolute;" >A mighty adventure</h2>
 
 <div class="fonshungerbar">
@@ -148,7 +140,7 @@ function loadgame() {
 
  
 <h2 id="mambo2" style="position:absolute;left:470px;top:280px;"></h2>
-<button id="loadplayas" class="submitbut" onclick="loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
+<button id="loadplayas" class="submitbut" onclick="turn.loadplayas()" style="top:30px;left:520px">load da playas in da sist!!</button>
 <!-- Ma boy, aquí poso un formulari per refrescar la pagina -->
 <form id="form1"  method="post" action="php/savegame.php" onsubmit="saveplaypos()" >
         <input  name="userr" id="userr"  style="visibility:hidden;">
