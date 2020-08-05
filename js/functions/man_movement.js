@@ -27,7 +27,7 @@ function move(x) {
 
 function movepers(x) {
     if(!turn.ended && !jugad1.moved) {
-        if( jugad1.dead ) jugad1.reportdeath("mambon5");
+        if( jugad1.dead ) jugad1.reportdeath("mambo3");
         else {
             if(jugad1.selected) { //this means the user has selected the human before
                  if(x.className==="earth" && x.id != jugad2.pos && validmove(jugad1.pos, x.id)) {

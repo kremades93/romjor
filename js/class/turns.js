@@ -43,7 +43,8 @@ class turn {
         document.getElementById("playpos").innerHTML =", position: <b>" + jugad1.pos +"</b>,";
         document.getElementById("playmoved").innerHTML ="moved status: <b>" + jugad1.moved + "</b>," +
                                                         " selected: " + jugad1.selected +
-                                                        " thirst: " + jugad1.thirst;
+                                                        " thirst: " + jugad1.thirst +
+                                                        "dead: " + jugad1.dead;
         document.getElementById("play2name").innerHTML ="player 2: '" + jugad2.name + "',";
         document.getElementById("play2pos").innerHTML ="position: " + jugad2.pos;
         document.getElementById("play2moved").innerHTML ="moved status: " + jugad2.moved + ",";

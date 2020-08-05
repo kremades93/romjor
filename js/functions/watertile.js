@@ -7,7 +7,7 @@
 
 function watertile(x) {
     if(!turn.ended && !jugad1.moved ) {
-        if( jugad1.dead ) jugad1.reportdeath("mambon5");
+        if( jugad1.dead ) jugad1.reportdeath("mambo3");
         else if(validmove(jugad1.pos, x.id)) {           
             jugad1.drink(5);
             turn.updategroceries();
