@@ -40,8 +40,10 @@ class turn {
 
     writestatus() {
         document.getElementById("playname").innerHTML ="<b> You play as: '" + jugad1.name + "'</b>,";
-        document.getElementById("playpos").innerHTML ="position: <b>" + jugad1.pos +"</b>,";
-        document.getElementById("playmoved").innerHTML ="moved status: <b>" + jugad1.moved + "</b>,";
+        document.getElementById("playpos").innerHTML =", position: <b>" + jugad1.pos +"</b>,";
+        document.getElementById("playmoved").innerHTML ="moved status: <b>" + jugad1.moved + "</b>," +
+                                                        " selected: " + jugad1.selected +
+                                                        " thirst: " + jugad1.thirst;
         document.getElementById("play2name").innerHTML ="player 2: '" + jugad2.name + "',";
         document.getElementById("play2pos").innerHTML ="position: " + jugad2.pos;
         document.getElementById("play2moved").innerHTML ="moved status: " + jugad2.moved + ",";
@@ -53,20 +55,14 @@ class turn {
     }
     
     finishturn() {
-        this.end();
-        turn.saveplaypos();
+        this._ended = true;
+        
         //availableturn = false;
         document.getElementById("nextturnbut").style.visibility = "visible";
-        document.getElementById("mambon5").innerHTML = "turn ended";
+        document.getElementById("mambo3").innerHTML = "turn ended";
+        document.getElementById("form1").submit(); 
     }
 
-    
-    checkturn() {
-        document.getElementById("mambo3").innerHTML = "holi";
-        if(jugad1.moved) {
-           turn.refresh(12);
-        }   
-    }
      
     refresh(sec=12) {
           document.getElementById("user").value = jugad1.name;

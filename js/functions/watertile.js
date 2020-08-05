@@ -6,14 +6,14 @@
 
 
 function watertile(x) {
-    if(availableturn && canmove=="yes" ) {
-        if( dead() ) reportdeath();
-        else if(validmove(posh1, x.id)) {           
-            thirst = thirst + 5;
-            thirst = Math.max(thirst,10);
-            updatefood();
-            writestatus();
-            finishturn();
+    if(!turn.ended && !jugad1.moved ) {
+        if( jugad1.dead ) jugad1.reportdeath("mambon5");
+        else if(validmove(jugad1.pos, x.id)) {           
+            jugad1.drink(5);
+            turn.updategroceries();
+            turn.writestatus();
+            turn.saveplaypos();
+            turn.finishturn();
         }        
     }
 }

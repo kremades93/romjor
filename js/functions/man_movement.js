@@ -26,28 +26,33 @@ function move(x) {
 //<!-- FUNCIONS OBSOLETES------------------------------------------------------------------------------------------------->
 
 function movepers(x) {
-    if(!turn.ended) {
+    if(!turn.ended && !jugad1.moved) {
         if( jugad1.dead ) jugad1.reportdeath("mambon5");
         else {
             if(jugad1.selected) { //this means the user has selected the human before
-                if(x.className==="earth" && x.id != jugad2.pos && validmove(jugad1.pos, x.id)) {
-                    jugad1.writestatus("mambon5", x);
+                 if(x.className==="earth" && x.id != jugad2.pos && validmove(jugad1.pos, x.id)) {
+                    if(x.id===jugad1.pos) { //this means, if stay still, I eat 1 unit
+                    jugad1.eat(1);
+                } else {
+                    jugad1.writestatus("mambo2", x);
                     jugad1.place(x.id);
                     
-                    jugad1.somriu();
+                    jugad1.cara = ":)";
                     jugad1.deselect();
                     jugad1.moved = true;
                     
                     jugad1.famish();
-                    
+                }
                     turn.updategroceries();
                     turn.writestatus();
+                    turn.saveplaypos();
                     turn.finishturn();
                 }
                 //document.getElementById("mambo1").innerHTML = "class:" + x.className + " id: " + x.id;
         } else if ( x.id===jugad1.pos ){
             jugad1.select();
-            jugad1.happy();
+            jugad1.cara = ":D";
+            turn.writestatus();
           }
         }       
     }

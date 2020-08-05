@@ -1,5 +1,5 @@
 class object {
-    constructor(pos,selected=false, html, id, visible=true) {
+    constructor(pos,selected, html, id, visible) {
       this._pos = pos;
       this._selected = selected;
       this._html = html;
@@ -16,6 +16,12 @@ class object {
     get visible() {
         return this._visible;
     }
+    get html() {
+        return this._html;
+    }
+    get id() {
+        return this._id;
+    }
 
     set pos(ep) {
       this._pos = ep;
@@ -25,6 +31,12 @@ class object {
     }
     set visible(ep) {
         this._visible = ep;
+    }
+    set html(ep) {
+        this._html = ep;
+    }
+    set id(ep) {
+        this._id = ep;
     }
     
     select() {
@@ -52,3 +64,4 @@ class object {
         this._pos=pos;
     }
 }
+

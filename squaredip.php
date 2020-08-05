@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="style/controls.css">
     <link rel="stylesheet" href="style/body.css">
 
-    <script type="text/javascript" src="js/class/animal.js"></script>
-    <script type="text/javascript" src="js/class/object.js"></script>
-    <script type="text/javascript" src="js/class/person.js"></script>
-    <script type="text/javascript" src="js/class/turns.js"></script>
-
-    
     <script type="text/javascript" src="js/functions/man_movement.js"></script>
     <script type="text/javascript" src="js/functions/tiles_onmouse.js"></script>
     <script type="text/javascript" src="js/functions/man_loading.js"></script>
     <script type="text/javascript" src="js/functions/tiles_matrix.js"></script>
     <script type="text/javascript" src="js/functions/turns.js"></script>
     <script type="text/javascript" src="js/functions/watertile.js"></script>
+    
+    <script type="text/javascript" src="js/class/object.js"></script>
+    <script type="text/javascript" src="js/class/animal.js"></script>
+    <script type="text/javascript" src="js/class/person.js"></script>
+    <script type="text/javascript" src="js/class/turns.js"></script>
+
+    
+    
     </head>
 
 
@@ -103,21 +105,20 @@ var jug1html='<div id="jugador1"><span class="leg1"></span><span class="leg2"></
 var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
 
 
-//               (pos, select, name, id, visible, thirst,hunger,dead, html, moved=false, cara=":S", carahtml) {
-
-//jugad1 = new person(posh1, false, jugador1, id="jugador1", visible=true, thirst, hunger, false, jug1html, moved, ":0","cara1");
-//jugad2 = new person(posh2, false, jugador2, id="jugador2", visible=true, thirst, hunger, false, jug1htm2, moved2, ":0","cara2");
+    //               
+//pos,selected=false, html, id, visible=true
+//jugad1 = new object(posh1, selected=false, jug1html, "jugador1", true);  
+//                   pos, selected,         name,   id,         visible,    thirst,     hunger,dead,        html,  moved
+//jugad1 = new animal(posh1,selected=false,jug1html , "jugador1", visible=true, thirst, hunger, dead=false, jugador1, moved );
+jugad1 = new person(posh1, false,jug1html , id="jugador1", visible=true, thirst, hunger, false, jugador1, moved, ":0","cara1");
+jugad2 = new person(posh2, false, jug2html, id="jugador2", visible=true, thirst, hunger, false, jugador2, moved2, ":0","cara2");
 
 turn = new turn(ended=false);
 
 
 
 function loadgame() {
-    document.getElementById("mambo3").innerHTML = "Moonshine " + posh1 + " select: " + "name: " + jugador1 + " id: " + " thirst: " + thirst + " hunger: " + hunger +
-            " html: " + jug1html + " moved: " + moved + " turn: " + turn.ended;
-    
-    turn.checkturn();
-    document.getElementById("mambo3").innerHTML = "Yo-Low";
+    if(jugad1.moved) turn.refresh(12);
     turn.writestatus();
     turn.loadplayas();   
     turn.updategroceries();
@@ -157,13 +158,13 @@ function loadgame() {
         <input id="reload" type="submit" class="submitbut" value="reloadgame" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
 </form>
 
-<div id="player-status" style="position:absolute;top:30px;left:50px;color:cornflowerblue" >
+<div id="player-status" style="position:absolute;top:30px;left:50px;color:white" >
     <span id="playname"></span>
     <span id="playmoved"></span>
     <span id="playpos"></span>
     <span id="pcanmove"></span>
 </div>
-<div id="play2-status" style="position:absolute;top:50px;left:50px;color:salmon" >
+<div id="play2-status" style="position:absolute;top:50px;left:50px;color:yellow" >
     <span id="play2name"></span>
     <span id="play2moved"></span>
     <span id="play2pos"></span>
