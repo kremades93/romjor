@@ -3,11 +3,14 @@
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="style/mapa.css">
+    <link rel="stylesheet" href="style/map.css">
     <link rel="stylesheet" href="style/button.css">
     <link rel="stylesheet" href="style/headers.css">
     <link rel="stylesheet" href="style/controls.css">
     <link rel="stylesheet" href="style/body.css">
+    <link rel="stylesheet" href="style/human.css">
+    <link rel="stylesheet" href="style/map.css">
+    <link rel="stylesheet" href="style/hiena.css">
 
     <script type="text/javascript" src="js/functions/man_movement.js"></script>
     <script type="text/javascript" src="js/functions/tiles_onmouse.js"></script>
@@ -20,6 +23,8 @@
     <script type="text/javascript" src="js/class/animal.js"></script>
     <script type="text/javascript" src="js/class/person.js"></script>
     <script type="text/javascript" src="js/class/turns.js"></script>
+    
+    <script type="text/javascript" src="js/global/variables.js"></script>
 
     
     
@@ -101,9 +106,6 @@ var hunger = "<?php echo $hunger ?>";
 var hunger2 = "<?php echo $hunger2 ?>";  
 
 
-var jug1html='<div id="jugador1" ><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara1" class="cara">:)</div></span></div>';
-var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></span><span class="arms"></span><span class="body"></span><span class="head"><div id="cara2" class="cara">:(</div></span></div>';
-
 
     //               
 //pos,selected=false, html, id, visible=true
@@ -113,6 +115,8 @@ var jug2html='<div id="jugador2"><span class="leg1"></span><span class="leg2"></
 jugad1 = new person(posh1, false,jug1html , id="jugador1", visible=true, thirst, hunger, false, jugador1, moved, ":0","cara1");
 jugad2 = new person(posh2, false, jug2html, id="jugador2", visible=true, thirst, hunger, false, jugador2, moved2, ":0","cara2");
 
+hiena = new animal("7-4", false, hienahtml, id="hiena1", visible=true, "10", "10", false, "wild hiena", false);
+
 turn = new turn(ended=false);
 
 
@@ -121,6 +125,7 @@ function loadgame() {
     if(jugad1.moved) turn.refresh(12);
     turn.writestatus();
     turn.loadplayas();   
+    turn.loadanimals();
     turn.updategroceries();
 }
 

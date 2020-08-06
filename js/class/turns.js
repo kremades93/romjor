@@ -28,6 +28,11 @@ class turn {
         jugad2.place(jugad2.pos);
         //availableturn = true;
     }
+    
+    loadanimals() {
+        hiena.place(hiena.pos);
+        //availableturn = true;
+    }
 
     saveplaypos() {
         document.getElementById("formpos").value = jugad1.pos;
