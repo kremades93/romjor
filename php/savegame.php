@@ -70,7 +70,7 @@ if($result === false) {
  }
 if($moved=="0") {$moved="1";}
 if($moved2==="1" && $moved==="1") {
-    $moved="0"; $moved2="0";
+    $moved="1"; $moved2="0";
     
     $sql = "UPDATE troballa_users SET moved='$moved2' WHERE user='$name2'";
     $result = $conn->query($sql);

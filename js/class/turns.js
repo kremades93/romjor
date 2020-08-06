@@ -67,6 +67,7 @@ class turn {
      
     refresh(sec=12) {
           document.getElementById("user").value = jugad1.name;
+          document.getElementById("reload").style.visibility="visible";
           setTimeout(function(){ document.getElementById("refresh").submit(); }, sec*1000);
     }
     

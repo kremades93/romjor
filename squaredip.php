@@ -153,9 +153,9 @@ function loadgame() {
         <input id="nextturnbut" type="submit" class="submitbut" value="Next turn ma fellas!" style="position:absolute;top:50px;left:470px;visibility:hidden" />
 </form>
 
-<form id="refresh"  method="post" action="php/loadgame.php" style="visibility:hidden">
+<form id="refresh"  method="post" action="php/loadgame.php" >
         <input  name="user" id="user"  style="visibility:hidden;">
-        <input id="reload" type="submit" class="submitbut" value="reloadgame" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
+        <input id="reload" type="submit" class="submitbut" value="Refresh" style="position:absolute;top:50px;left:470px;visibility:hidden"/>
 </form>
 
 <div id="player-status" style="position:absolute;top:30px;left:50px;color:white" >
