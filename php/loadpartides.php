@@ -40,16 +40,18 @@ if ($result === FALSE) {
 
 $games = array_column($result2, 'game');
 
- echo  '<form id="form2"  method="post" action="loadplayers.php" style="visibility:visible">     
+
+
+echo  '<form id="gameform"  method="post" action="loadplayers.php" style="visibility:visible">     
          <label for="cars">Choose a game:</label>
         <select name="game" >';
 
-
-for ($i = 0; $i < sizeof($games) ; $i++) { /* printing different games */
-    echo '<option onclick="submitform(\'form2\')" value="'.$games[$i].'">'.$games[$i].'</option>';
-}
-  echo      '</select>
-        </form>';  
+    for ($i = 0; $i < sizeof($games) ; $i++) { /* printing different games */
+        echo '<option onclick="submitform(\'gameform\')" value="'.$games[$i].'">'.$games[$i].'</option>';
+    }
+      echo      '</select>
+            </form>'; 
+ 
 
 
 $conn->close();

@@ -1,0 +1,11 @@
+.table1{
+    border: 0px solid #ccffe6;
+    cellpadding:0px;
+    cellspacing:0px;
+}
+
+th, td {
+  border-bottom: 1px solid #ccffe6;
+}
+
+td:hover {background-color: #ccffe6;}

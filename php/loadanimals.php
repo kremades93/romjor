@@ -4,11 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="../style/button.css">
+        <link rel="stylesheet" href="../style/tables.css">
 
         <script type="text/javascript" src="../js/functions/submitform.js"></script>
     </head>
 
-<body onload="submitform('form2')">
+<body onload="">
 
 <?php
 
@@ -16,11 +17,12 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $game = $_POST['game'];
           $jugador1 = $_POST['jugador1'];
+          $nplayas = $_POST['numbplayas'];
         }
 
 
 include("connect.php");
-
+include("getdata/getuser.php");
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -38,6 +40,7 @@ if ($result === FALSE) {
 }
 
 $name = array_column($result2, 'name');
+
 echo "<p>Loading game: $game ... </p>";
 echo "<p>Animals in the game:</p>"
 . "<ul>";
@@ -47,11 +50,37 @@ for ($i = 0; $i < sizeof($name) ; $i++) { /* printing different games */
 echo "</ul>";
 
  echo  '<form id="form2"  method="post" action="mam.php" style="visibility:visible"> 
-        <input  name="animals"  value="'.implode(",",$name).'" style="visibility:visible">
-        <input  name="jugador1"  value="'.$jugador1.'" style="visibility:visible">
-        <input  name="game"  value="'.$game.'" style="visibility:visible">  
-        </form>';  
+     
 
+    <table  class="table1">
+    <tr>    
+      <td>animals</td>    
+      <td>player name</td>
+      <td>game name</td>
+      <td>number of players</td>
+    </tr>   
+    <tr>    
+      <td><input  name="animals"  value="'.implode(",",$name).'" style="visibility:visible"></td>    
+      <td><input  name="jugador1"  value="'.$jugador1.'" style="visibility:visible"></td>    
+      <td><input  name="game"  value="'.$game.'" style="visibility:visible"></td>    
+      <td><input  name="nplayas"  value="'.$nplayas.'" style="visibility:visible"></td>
+      <td><input class ="submitbut"  type="submit" value="Start game"></td>
+    </tr>    
+    </table>  
+
+
+            
+        </form>';  
+ 
+
+
+$playa1 = getplaya($game,$jugador1,$conn);
+
+echo "<p> ".$playa1['name']." - ".$playa1['pos']." - ".$playa1['hunger']." - ".$playa1['thirst']."</p>";
+
+$playa2 = getplaya($game,'jugador2',$conn); //this line is wrong
+
+echo "<p> ".$playa2['name']." - ".$playa2['pos']." - ".$playa2['hunger']." - ".$playa2['thirst']."</p>";
 
 $conn->close();
 
